@@ -1,0 +1,13 @@
+var CONFIG = {
+    logo: 'https://rando.marittimemercantour.eu/custom/images/Spirale_vert.png',
+    lien_parc: 'http://www.mercantour-parcnational.fr',
+    points: 'http://pnx.espaces-naturels.fr/signature/pointilles_pnm.png',
+    parc: 'Parc national du Mercantour',
+    tel: 'Tel : +33 (0)4 93 16 78 XX - Mobile : +33 (0)6 34 47 68 XX',
+    facebook: '<a href="https://www.facebook.com/ParcnationalduMercantour"><img src="http://pnx.espaces-naturels.fr/signature/signature_facebook.png" alt="" id="Facebook" style="BORDER:0px"/></a>',
+    twitter: '<A href="https://twitter.com/mercantour"><IMG src="http://pnx.espaces-naturels.fr/signature/signature_twitter.png" alt="" id="Twitter" style="BORDER:0px" /></A>',
+    youtube: '<A href="https://www.youtube.com/user/MercantourTV"><IMG src="http://pnx.espaces-naturels.fr/signature/signature_youtube.png" alt="" id="YouTube" style="BORDER:0px" /></A>',
+    instagram: '<A href="https://www.instagram.com/pnmercantour/"><IMG src="http://pnx.espaces-naturels.fr/signature/signature_instagram.png" alt="" id="Instagram" style="BORDER:0px"></A>',
+    templates: ['classique']
+    //pinterest: '<A href="https://www.pinterest.com/XXXXXXXXXX"><IMG src="http://pnx.espaces-naturels.fr/signature/signature_pinterest.png" alt="" id="Pinterest" style="BORDER:0px"></A>',
+}

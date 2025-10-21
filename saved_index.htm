@@ -1,0 +1,136 @@
+<html ng-app="email">
+
+
+    <head>
+        <meta charset="utf8" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+        <script src="config.js"></script>
+        <script src="app.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    </head>
+
+
+    <body ng-controller="mainCtrl as vm">
+    <div class="container">
+        <h1>Générateur de signature Mail</h1>
+        <form name="generateur" novalidate>
+            <div class="form">
+                <div class="form-group input-group">
+                    <label class="input-group-addon" for="_prenom">Prénom</label>
+                    <input class="form-control" id="_prenom" type="text" ng-model="vm.prenom" placeholder="Paul" required="required"/>
+                </div>
+                <div class="form-group input-group">
+                    <label class="input-group-addon" for="_nom">Nom</label>
+                    <input class="form-control" id="_nom" type="text" ng-model="vm.nom" placeholder="Hochon" required="required"/>
+                </div>
+                <div class="form-group input-group">
+                    <label class="input-group-addon" for="_fonction">Fonction</label>
+                    <input class="form-control" id="_fonction" type="text" ng-model="vm.fonction" placeholder="Factotum" required="required"/>
+                </div>
+                <div class="form-group input-group">
+                    <label class="input-group-addon" for="_telephone">Téléphone(s)</label>
+                    <input class="form-control" id="_telephone" type="text" ng-model="vm.tel" placeholder="Tél : +33 (0)4 66 49 XX XX - Mobile : +33 (0)6 XX XX XX XX" />
+                </div>
+                <div class="form-group">
+                    <input id="_checkcase" type="checkbox" ng-model="vm.check_case" />
+                    <label for="_checkcase"> Corriger automatiquement la casse</label>
+                </div>
+                <div>
+                    <button class="btn btn-success" type="button" ng-click="vm.save(true)" ng-disabled="generateur.$invalid">Générer la signature</button>
+                </div>
+
+            </div>
+        </form>
+
+        <div>
+            <h1>Prévisualisation</h1>
+
+            <select ng-model="vm.template" ng-if="vm.templates.length>1" >
+              <option ng-repeat="template in vm.templates"
+                      ng-selected="template === vm.template"
+              >
+                     {{template}}
+              </option>
+            </select>
+
+            <div id="preview" ng-include="vm.template.trim() + '.html'"></div>
+
+        </div>
+
+    </div>
+    <div class="well container">
+        <h1>Explications</h1>
+        <hr />
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#gen_signature" data-toggle="tab" >Générer sa signature</a></li>
+            <li><a href="#thunderbird" data-toggle="tab" >Ajouter sa signature dans Thunderbird</a></li>
+            <li><a href="#zimbra" data-toggle="tab" >Ajouter sa signature dans Zimbra</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="gen_signature">
+                <h2>Générer sa signature</h2>
+                <p>
+                Il suffit de remplir le formulaire avec les informations demandées.
+                </p>
+                <p>
+                Le nom, le prénom et la fonction peuvent être écrits en minuscule. Ils seront reformatés pour s'afficher joliment.
+                </p>
+                <p>
+                La ligne "Téléphone" se remplit sous la forme "Tel : +33 (0)4 93 16 78 60"<br />
+                Il est important de bien mettre l'indicatif Fr (+33) et de séparer les chiffres par paire séparées par une espace.<br />
+                Afin de bien respecter la norme d'affichage, séparer les différents numéros de téléphone par un " - "
+                </p>
+                <p>
+                Appuyer ensuite sur le bouton vert "Générer la signature". <br />
+                Le navigateur construit le fichier signature et l'enregistre automatiquement dans votre dossier "Téléchargements" 
+                avec le nom "signature_prenom_nom.htm".
+                </p>
+                <p>
+                Pour finir, déplacer le fichier reçu du dossier "Téléchargements" vers le dossier "Documents" en le faisant glisser d'un répertoire à l'autre. <br />
+		<em>Ne surtout pas utiliser le navigateur web pour cette dernière opération, car le navigateur web modifie les fichiers qu'il enregistre et copie les logos sur votre disque, ce qui les fait disparaître de votre signature mail reçue par vos correspondants.</em>
+		</p>
+            </div>
+            <div class="tab-pane" id="thunderbird">
+                <h2>Comment ajouter sa signature à Thunderbird</h2>
+                <ol>
+                    <li>
+                        Cliquer sur votre adresse e-mail (au dessus du dossier "Courrier entrant").
+                    </li>
+                    <li>
+                        Sur la page affichée, cliquer sur "Paramètres du compte" en haut à droite.
+                    </li>
+                    <li>
+                        Dans la fenetre qui s'ouvre, cocher la case "Apposer la signature à partir d'un fichier, puis sélectionner le fichier que vous venez d'enregistrer dans votre répertoire "Documents".
+                    </li>
+                </ol>
+            </div>
+            <div class="tab-pane" id="zimbra">
+                <h2>Comment ajouter sa signature à Zimbra</h2>
+                <ol>
+                    <li>
+                        Dans Zimbra :
+                        <ol>
+			    <li>Cliquez sur l'onglet "Préférences", puis dans le menu de gauche, sur "Mail". </li> 
+			    <li>Dans la fenêtre qui apparait, sur la droite, cochez l'option de création des mails au format HTML.</li>
+                            <li>Cliquez sur l'onglet "Préférences", puis dans le menu de gauche, sur "Signatures"</li>
+                            <li>Dans la fenêtre qui apparait, sur la droite, cliquez sur le bouton "format texte simple" et sélectionnez "format HTML"</li>
+                            <li>Si vous aviez une signature déja configurée, supprimez la : cliquez dans la zone de saisie puis ctrl-A, puis appuyez sur le bouton Suppr du clavier</li>
+                        </ol>
+                    </li>
+                    <li>
+                        Ouvrez dans votre navigateur web votre fichier signature (double clic sur le fichier que vous avez enregistré précédemment dans le répertoire "Documents" de votre PC).
+                    </li>
+                    <li>
+                        Votre signature s'affiche dans une nouvelle page du navigateur web. Sélectionnez tout le contenu de la page (ctrl-A), copiez (ctrl-C) et collez dans la zone de texte de zimbra (ctrl-V), en supprimant l'existant si nécessaire. Réglez l'utilisation des signatures, puis, pour valider les modifications, appuyer sur "Enregistrer".
+                    </li>    
+            </ol>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

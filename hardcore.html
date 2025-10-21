@@ -1,0 +1,29 @@
+<HR />
+<TABLE style="FONT-SIZE: 10pt; FONT-FAMILY: Arial, Helvetica, sans-serif;BORDER-SPACING:1px; PADDING:0">
+   <TR style="vertical-align: top">
+       <TD><IMG src="wolf.jpeg"/></TD>
+       <TD><IMG ng-src="{{vm.points}}" alt="" style="margin: 15px; margin-top: 0"/></TD>
+       <TD><SPAN style="COLOR: #000000;">
+           <b style="FONT-SIZE: 11pt; color:red"> {{ vm.formatName(vm.prenom) }} {{vm.formatLastName(vm.nom) }}</b><BR/>
+           {{vm.formatName(vm.fonction)}}</SPAN><BR/><BR/>
+
+
+           <img src="http://pnx.espaces-naturels.fr/signature/reservebio_pnc.png" alt="" align="left" style="align: left; margin-top: 8px; margin-right: 15px;" /><!--ajout pnc-->
+           <span style="color: #999999">
+
+            <b>{{ vm.parc }}</b><BR/>
+            666 <BR/>
+            <A href="http://vm.lien_parc" style="COLOR: #999999; TEXT-DECORATION: none">{{ vm.lien_parc }}</A>
+           </span>
+
+           <p>
+            <span ng-bind-html="vm.facebook"></span>
+            <span ng-bind-html="vm.twitter"></span>
+            <span ng-bind-html="vm.youtube"></span>
+            <span ng-bind-html="vm.pinterest"></span>
+            <span ng-bind-html="vm.instagram"></span>
+          </p>
+           <p style="color: #ed8b00">Faites en geste pour l'environnement : n'imprimez ce message qu'en cas de nécessité</p>
+       </TD>
+   </TR>
+</TABLE>

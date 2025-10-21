@@ -1,29 +1,38 @@
 <HR />
-<TABLE style="FONT-SIZE: 10pt; FONT-FAMILY: Arial, Helvetica, sans-serif;BORDER-SPACING:1px; PADDING:0">
-   <TR style="vertical-align: top">
-       <TD><IMG ng-src="{{vm.logo}}"/></TD>
-       <TD><IMG ng-src="{{vm.points}}" alt="" style="margin: 15px; margin-top: 0"/></TD>
-       <TD><SPAN style="COLOR: #000000;">
-           <b style="FONT-SIZE: 11pt;"> {{ vm.formatName(vm.prenom) }} {{vm.formatLastName(vm.nom) }}</b><BR/>
-           {{vm.formatName(vm.fonction)}}</SPAN><BR/><BR/>
+<TABLE
+    style="FONT-SIZE: 10pt; FONT-FAMILY: Arial, Helvetica, sans-serif; BORDER-SPACING: 10px; PADDING: 0; width: 100%">
+    <TR style="vertical-align: top">
+        <!-- Informations de contact au centre -->
+        <TD style="vertical-align: top;">
+            <div style="COLOR: #000000; margin-bottom: 10px;">
+                <b style="FONT-SIZE: 10pt; font-weight: bold;"> {{ vm.formatName(vm.prenom) }}
+                    {{vm.formatLastName(vm.nom) }}</b><BR />
+                <span style="font-size: 10pt;">{{vm.formatFunction(vm.fonction)}}</span><BR />
+                {{ vm.parc }}<BR />
+            </div>
+
+            <div style="color: #000000; font-size: 10pt; line-height: 1.4;">
+                {{vm.adresse}}<BR />
+                {{vm.tel}}<BR />
+                <A href="{{vm.lien_parc}}">{{ vm.lien_parc }}</A>
+            </div>
+
+            <div style=" vertical-align: top;">
+                <img src="{{vm.logo}}" alt="Logo" style="display: block; width: 33%;" />
+            </div>
 
 
-            <!-- <img src="http://pnx.espaces-naturels.fr/signature/reservebio_pnc.png" alt="" align="left" style="align: left; margin-top: 8px; margin-right: 15px;" />--> <!--ajout pnc-->
-           <span style="color: #999999">
+            <div style="margin-top: 15px;">
+                <span ng-bind-html="vm.facebook"></span>
+                <span ng-bind-html="vm.twitter"></span>
+                <span ng-bind-html="vm.youtube"></span>
+                <span ng-bind-html="vm.pinterest"></span>
+                <span ng-bind-html="vm.instagram"></span>
+                <span ng-bind-html="vm.linkedin"></span>
+            </div>
 
-            <b>{{ vm.parc }}</b><BR/>
-            {{vm.tel}} <BR/>
-            <A href="{{vm.lien_parc}}" style="COLOR: #999999; TEXT-DECORATION: none">{{ vm.lien_parc }}</A>
-           </span>
-
-           <p>
-            <span ng-bind-html="vm.facebook"></span>
-            <span ng-bind-html="vm.twitter"></span>
-            <span ng-bind-html="vm.youtube"></span>
-            <span ng-bind-html="vm.pinterest"></span>
-            <span ng-bind-html="vm.instagram"></span>
-          </p>
-           <p style="color: #78b53c">Faites un geste pour l'environnement : n'imprimez ce message qu'en cas de nécessité</p>
-       </TD>
-   </TR>
+            <p style="color: #78b53c; margin-top: 15px; font-size: 9pt;">Faites un geste pour l'environnement :
+                n'imprimez ce message qu'en cas de nécessité</p>
+        </TD>
+    </TR>
 </TABLE>

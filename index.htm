@@ -1,47 +1,54 @@
 <html ng-app="email">
 
 
-    <head>
-        <meta charset="utf8" />
+<head>
+    <meta charset="utf8" />
 
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
 
-        <script src="config.js"></script>
-        <script src="app.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-    </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+</head>
 
 
-    <body ng-controller="mainCtrl as vm">
+<body ng-controller="mainCtrl as vm">
     <div class="container">
         <h1>Générateur de signature Mail</h1>
         <form name="generateur" novalidate>
             <div class="form">
                 <div class="form-group input-group">
                     <label class="input-group-addon" for="_prenom">Prénom</label>
-                    <input class="form-control" id="_prenom" type="text" ng-model="vm.prenom" placeholder="Paul" required="required"/>
+                    <input class="form-control" id="_prenom" type="text" ng-model="vm.prenom" placeholder="Paul"
+                        required="required" />
                 </div>
                 <div class="form-group input-group">
                     <label class="input-group-addon" for="_nom">Nom</label>
-                    <input class="form-control" id="_nom" type="text" ng-model="vm.nom" placeholder="Hochon" required="required"/>
+                    <input class="form-control" id="_nom" type="text" ng-model="vm.nom" placeholder="Hochon"
+                        required="required" />
                 </div>
                 <div class="form-group input-group">
                     <label class="input-group-addon" for="_fonction">Fonction</label>
-                    <input class="form-control" id="_fonction" type="text" ng-model="vm.fonction" placeholder="Factotum" required="required"/>
+                    <input class="form-control" id="_fonction" type="text" ng-model="vm.fonction" placeholder="Factotum"
+                        required="required" />
                 </div>
                 <div class="form-group input-group">
                     <label class="input-group-addon" for="_telephone">Téléphone(s)</label>
-                    <input class="form-control" id="_telephone" type="text" ng-model="vm.tel" placeholder="Tél : +33 (0)4 66 49 XX XX - Mobile : +33 (0)6 XX XX XX XX" />
+                    <input class="form-control" id="_telephone" type="text" ng-model="vm.tel"
+                        placeholder="Tél : +33 (0)4 66 49 XX XX - Mobile : +33 (0)6 XX XX XX XX" />
                 </div>
                 <div class="form-group">
                     <input id="_checkcase" type="checkbox" ng-model="vm.check_case" />
                     <label for="_checkcase"> Corriger automatiquement la casse</label>
                 </div>
                 <div>
-                    <button class="btn btn-success" type="button" ng-click="vm.save(true)" ng-disabled="generateur.$invalid">Générer la signature</button>
+                    <button class="btn btn-success" type="button" ng-click="vm.save(true)"
+                        ng-disabled="generateur.$invalid">Générer la signature</button>
                 </div>
 
             </div>
@@ -50,12 +57,10 @@
         <div>
             <h1>Prévisualisation</h1>
 
-            <select ng-model="vm.template" ng-if="vm.templates.length>1" >
-              <option ng-repeat="template in vm.templates"
-                      ng-selected="template === vm.template"
-              >
-                     {{template}}
-              </option>
+            <select ng-model="vm.template" ng-if="vm.templates.length>1">
+                <option ng-repeat="template in vm.templates" ng-selected="template === vm.template">
+                    {{template}}
+                </option>
             </select>
 
             <div id="preview" ng-include="vm.template.trim() + '.html'"></div>
@@ -64,60 +69,68 @@
 
     </div>
     <div class="well container">
-	<h1>La notice en images</h1>
-	<a href="https://migration365.mercantour.local/files/webmail_outlook_signature.pdf" target="_blank"> Télécharger la notice pdf</a>
+        <h1>La notice en images</h1>
+        <a href="https://migration365.mercantour.local/files/webmail_outlook_signature.pdf" target="_blank"> Télécharger
+            la notice pdf</a>
     </div>
     <div class="well container">
         <h1>Explications</h1>
         <hr />
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#gen_signature" data-toggle="tab" >Générer sa signature</a></li>
-            <li><a href="#outlook" data-toggle="tab" >Ajouter sa signature dans Outlook </a></li>
-            <li><a href="#mobile" data-toggle="tab" >Ajouter sa signature dans Outlook Mobile</a></li>
+            <li class="active"><a href="#gen_signature" data-toggle="tab">Générer sa signature</a></li>
+            <li><a href="#outlook" data-toggle="tab">Ajouter sa signature dans Outlook </a></li>
+            <li><a href="#mobile" data-toggle="tab">Ajouter sa signature dans Outlook Mobile</a></li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="gen_signature">
                 <h2>Générer sa signature</h2>
                 <p>
-                Il suffit de remplir le formulaire avec les informations demandées.
+                    Il suffit de remplir le formulaire avec les informations demandées.
                 </p>
                 <p>
-                Le nom, le prénom et la fonction peuvent être écrits en minuscule. Ils seront reformatés pour s'afficher joliment.
+                    Le nom, le prénom et la fonction peuvent être écrits en minuscule. Ils seront reformatés pour
+                    s'afficher joliment.
                 </p>
                 <p>
-                La ligne "Téléphone" se remplit sous la forme "Tel : +33 (0)4 93 16 78 60"<br />
-                Il est important de bien mettre l'indicatif Fr (+33) et de séparer les chiffres par paire séparées par une espace.<br />
-                Afin de bien respecter la norme d'affichage, séparer les différents numéros de téléphone par un " - "
+                    La ligne "Téléphone" se remplit sous la forme "Tel : +33 (0)4 93 16 78 60"<br />
+                    Il est important de bien mettre l'indicatif Fr (+33) et de séparer les chiffres par paire séparées
+                    par une espace.<br />
+                    Afin de bien respecter la norme d'affichage, séparer les différents numéros de téléphone par un " -
+                    "
                 </p>
                 <p>
-                Appuyer ensuite sur le bouton vert "Générer la signature". <br />
-                Le navigateur construit le fichier signature et l'enregistre automatiquement dans votre dossier "Téléchargements" 
-                avec le nom "signature_prenom_nom.htm".
+                    Appuyer ensuite sur le bouton vert "Générer la signature". <br />
+                    Le navigateur construit le fichier signature et l'enregistre automatiquement dans votre dossier
+                    "Téléchargements"
+                    avec le nom "signature_prenom_nom.htm".
                 </p>
                 <p>
-                Ouvrir le fichier reçu dans votre navigateur, 
-		copier son contenu (en tapant CTRL A puis CTRL C) 
-		avant de le coller dans outlook (CTRL V dans la section appropriée des paramètres outlook).
-		</p>
+                    Ouvrir le fichier reçu dans votre navigateur,
+                    copier son contenu (en tapant CTRL A puis CTRL C)
+                    avant de le coller dans outlook (CTRL V dans la section appropriée des paramètres outlook).
+                </p>
             </div>
             <div class="tab-pane" id="outlook">
                 <h2>Comment ajouter sa signature dans Outlook pour le web</h2>
                 <ol>
                     <li>
-			Ouvrir Outlook pour le web.
-		    </li>
-		    <li>
+                        Ouvrir Outlook pour le web.
+                    </li>
+                    <li>
                         Cliquer sur les paramètres (en haut à droite de la fenêtre).
                     </li>
                     <li>
                         Dans la fenetre qui s'ouvre, cliquer sur Compte (colonne de gauche) puis sur Signatures.
                     </li>
-		    <li>
-			Cliquer sur nouvelle signature et coller (CTRL V) dans la zone d'édition la signature générée précédemment.
-La signature sera également disponible dans le client Outlook au prochain démarrage de l'application.
+                    <li>
+                        Cliquer sur nouvelle signature et coller (CTRL V) dans la zone d'édition la signature générée
+                        précédemment.
+                        La signature sera également disponible dans le client Outlook au prochain démarrage de
+                        l'application.
                     </li>
                 </ol>
-		Lors de l'édition d'un message, la sélection de la signature est possible par le menu Insérer / Signature.
+                Lors de l'édition d'un message, la sélection de la signature est possible par le menu Insérer /
+                Signature.
             </div>
 
             <div class="tab-pane" id="mobile">
@@ -125,20 +138,21 @@ La signature sera également disponible dans le client Outlook au prochain déma
                 <ol>
                     <li>
                         Ouvrir Outlook Mobile
-			</li>
-<li>
-Accéder aux paramètres: cliquer en haut à gauche (maison ou initiales du compte sélectionné) 
-pour faire apparaître le bandeau latéral, 
-puis sélectionner les paramètres en bas du bandeau latéral.
-</li>
-<li>
-Cliquer sur Signatures
-</li>
-<li>
-Coller la signature précédemment générée, pour le compte voulu (ou pour tous les comptes).
-            </ol>
+                    </li>
+                    <li>
+                        Accéder aux paramètres: cliquer en haut à gauche (maison ou initiales du compte sélectionné)
+                        pour faire apparaître le bandeau latéral,
+                        puis sélectionner les paramètres en bas du bandeau latéral.
+                    </li>
+                    <li>
+                        Cliquer sur Signatures
+                    </li>
+                    <li>
+                        Coller la signature précédemment générée, pour le compte voulu (ou pour tous les comptes).
+                </ol>
             </div>
         </div>
     </div>
-    </body>
+</body>
+
 </html>

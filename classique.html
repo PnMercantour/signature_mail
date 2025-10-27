@@ -1,16 +1,17 @@
-<TABLE
-    style="FONT-SIZE: 10pt; FONT-FAMILY: Arial, Helvetica, sans-serif; BORDER-SPACING: 10px; PADDING: 0; width: 100%">
-    <TR style="margin-top: 10px;">
+<TABLE style="FONT-SIZE: 10pt; FONT-FAMILY: Arial, sans-serif; BORDER-SPACING: 10px; PADDING: 0; width: 100%">
+    <TR style="margin-top: 10px; FONT-SIZE: 10pt; FONT-FAMILY: Arial, sans-serif">
         <!-- Informations de contact au centre -->
-        <TD style="vertical-align: top;">
-            <div style="COLOR: #000000; margin-bottom: 10px;">
-                <b style="FONT-SIZE: 10pt; font-weight: bold;"> {{ vm.formatName(vm.prenom) }}
+        <TD style="vertical-align: top; FONT-SIZE: 10pt; FONT-FAMILY: Arial, sans-serif">
+            <div style="COLOR: #000000; margin-bottom: 10px; FONT-SIZE: 10pt; FONT-FAMILY: Arial, sans-serif">
+                <b style="font-weight: bold; FONT-SIZE: 10pt; FONT-FAMILY: Arial, sans-serif"> {{
+                    vm.formatName(vm.prenom) }}
                     {{vm.formatLastName(vm.nom) }}</b><BR />
-                <span style="font-size: 10pt;">{{vm.formatFunction(vm.fonction)}}</span><BR />
+                <span
+                    style="font-size: 10pt; FONT-FAMILY: Arial, sans-serif">{{vm.formatFunction(vm.fonction)}}</span><BR />
                 {{ vm.parc }}<BR />
             </div>
 
-            <div style="color: #000000; font-size: 10pt; line-height: 1.4;">
+            <div style="color: #000000; font-size: 10pt; line-height: 1.4;  FONT-FAMILY: Arial, sans-serif">
                 {{vm.adresse}}<BR />
                 {{vm.tel}}<BR />
                 <A href="{{vm.lien_parc}}">www.mercantour-parcnational.fr</A>
@@ -30,7 +31,8 @@
                 <span ng-bind-html="vm.linkedin"></span>
             </div>
 
-            <p style="color: #78b53c; margin-top: 15px; font-size: 9pt;">Faites un geste pour l'environnement :
+            <p style="color: #78b53c; margin-top: 15px; font-size: 9pt;  FONT-FAMILY: Arial, sans-serif">Faites un geste
+                pour l'environnement :
                 n'imprimez ce message qu'en cas de nécessité</p>
         </TD>
     </TR>

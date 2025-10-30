@@ -32,10 +32,36 @@
                     <input class="form-control" id="_nom" type="text" ng-model="vm.nom" placeholder="Hochon"
                         required="required" />
                 </div>
-                <div class="form-group input-group">
+                <!-- Fonction sur une seule ligne -->
+                <div class="form-group input-group" ng-if="!vm.multiline_function">
                     <label class="input-group-addon" for="_fonction">Fonction</label>
                     <input class="form-control" id="_fonction" type="text" ng-model="vm.fonction" placeholder="Factotum"
                         required="required" />
+                </div>
+
+                <!-- Fonction sur plusieurs lignes -->
+                <div ng-if="vm.multiline_function">
+                    <div class="form-group">
+                        <label>Fonction (2 lignes)</label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <label class="input-group-addon" for="_fonction_ligne1">Ligne 1</label>
+                                    <input class="form-control" id="_fonction_ligne1" type="text"
+                                        ng-model="vm.fonction_ligne1" placeholder="Première ligne de la fonction"
+                                        required="required" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <label class="input-group-addon" for="_fonction_ligne2">Ligne 2</label>
+                                    <input class="form-control" id="_fonction_ligne2" type="text"
+                                        ng-model="vm.fonction_ligne2" placeholder="Deuxième ligne de la fonction"
+                                        required="required" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group input-group">
                     <label class="input-group-addon" for="_telephone">Téléphone(s)</label>
@@ -45,6 +71,10 @@
                 <div class="form-group">
                     <input id="_checkcase" type="checkbox" ng-model="vm.check_case" />
                     <label for="_checkcase"> Corriger automatiquement la casse</label>
+                </div>
+                <div class="form-group">
+                    <input id="_multiline" type="checkbox" ng-model="vm.multiline_function" />
+                    <label for="_multiline"> Fonction sur plusieurs lignes</label>
                 </div>
                 <div>
                     <button class="btn btn-success" type="button" ng-click="vm.save(true)"

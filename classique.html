@@ -6,8 +6,8 @@
                 <b style="font-weight: bold; FONT-SIZE: 10pt; FONT-FAMILY: Arial, sans-serif"> {{
                     vm.formatName(vm.prenom) }}
                     {{vm.formatLastName(vm.nom) }}</b><BR />
-                <span
-                    style="font-size: 10pt; FONT-FAMILY: Arial, sans-serif">{{vm.formatFunction(vm.fonction)}}</span><BR />
+                <span style="font-size: 10pt; FONT-FAMILY: Arial, sans-serif"
+                    ng-bind-html="vm.formatFunction(vm.fonction)"></span><BR />
                 {{ vm.parc }}<BR />
             </div>
 
